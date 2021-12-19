@@ -9,6 +9,8 @@ CC := gcc
 SRCS := 	src/main.c \
 			src/error.c \
 			src/t_pixl.c \
+			src/my_pixel_put.c \
+			src/testput.c \
 			gnl/get_next_line.c \
 			gnl/get_next_line_utils.c \
 
@@ -30,6 +32,7 @@ $(MLX):
 	$(MAKE) -C mlx && test -e libmlx.dylib || ln -sf mlx/libmlx.dylib libmlx.dylib
 
 clean :
+	rm libmlx.dylib
 	$(MAKE) clean -C libft
 
 fclean : 
@@ -37,6 +40,6 @@ fclean :
 	$(MAKE) clean -C mlx
 	rm -f $(NAME)
 
-re: fclean all
+re : fclean all
 
-.PHONY: all, clean, fclean, re
+.PHONY : all, clean, fclean, re
