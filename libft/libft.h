@@ -5,8 +5,8 @@
 /*                                                     +:+                    */
 /*   By: sde-quai <sde-quai@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2021/12/02 13:00:08 by sde-quai      #+#    #+#                 */
-/*   Updated: 2021/12/09 11:20:57 by sde-quai      ########   odam.nl         */
+/*   Created: 2021/12/02 12:59:54 by sde-quai      #+#    #+#                 */
+/*   Updated: 2022/01/19 11:41:32 by sde-quai      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,5 +69,9 @@ void			ft_lstclear(t_list **lst, void (*del)(void *));
 void			ft_lstiter(t_list *lst, void (*f)(void *));
 t_list			*ft_lstmap(t_list *lst, void *(*f)(void *), \
 void (*del)(void *));
+void			ft_check_malloc(void *ptr);
+void			ft_split_free(char **split);
+int				ft_split_len(char **split);
+char			*ft_strdup_c(const char *s1, char c);
 
 #endif

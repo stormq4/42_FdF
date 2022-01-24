@@ -6,7 +6,7 @@
 /*   By: sde-quai <sde-quai@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/12/10 12:19:54 by sde-quai      #+#    #+#                 */
-/*   Updated: 2021/12/14 14:09:00 by sde-quai      ########   odam.nl         */
+/*   Updated: 2022/01/24 10:44:31 by sde-quai      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 # include "../gnl/get_next_line.h"
 # include "../libft/libft.h"
 
-typedef struct	s_data {
+typedef struct s_data {
 	void	*img;
 	char	*addr;
 	int		bits_per_pixel;
@@ -29,23 +29,21 @@ typedef struct	s_data {
 	int		endian;
 }				t_data;
 
-typedef struct	s_vars {
+typedef struct s_pixel {
+	float	x;
+	float	y;
+	float	z;
+}				t_pixel;
+
+typedef struct s_vars {
 	void	*mlx;
 	void	*win;
+	t_pixel	*input;
+	size_t	input_len;
 }				t_vars;
 
-typedef struct	s_pixl {
-	int	x;
-	int	y;
-	int	z;
-	struct	s_pixl *next;
-}				t_pixl;
-
-void	check_malloc(void *ptr);
-t_pixl	*pixl_lstnew(int i, int j, int k);
-void	pixl_lstadd_back(t_pixl **lst, t_pixl *new);
-t_pixl	*pixl_lstlast(t_pixl *lst);
-void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
-void	test_put(t_pixl *lst, t_data img);
-
+t_pixel	*convert_input(char **argv, size_t input_len);
+size_t	retrieve_array_length(char **argv);
+char	*remove_newline(char *line);
+void	print_test(t_vars vars); //delete
 #endif

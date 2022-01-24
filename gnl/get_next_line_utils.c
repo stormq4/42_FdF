@@ -6,7 +6,7 @@
 /*   By: sde-quai <sde-quai@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/10/28 12:15:43 by sde-quai      #+#    #+#                 */
-/*   Updated: 2021/10/29 12:47:49 by sde-quai      ########   odam.nl         */
+/*   Updated: 2022/01/21 16:01:59 by sde-quai      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ char	*gnl_reindex_buf(char *buffer, char *line)
 	str_lenbuf = gnl_strlen(buffer, TRUE);
 	tmp = malloc((gnl_strlen(line, FALSE) + str_lenbuf + 2) * sizeof(char));
 	if (!tmp)
-		return (NULL);
+		exit(1);
 	i[1] = 0;
 	while (line[i[1]] != '\0')
 	{

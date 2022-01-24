@@ -6,7 +6,7 @@
 /*   By: sde-quai <sde-quai@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/12/02 12:55:30 by sde-quai      #+#    #+#                 */
-/*   Updated: 2021/12/09 16:11:13 by sde-quai      ########   odam.nl         */
+/*   Updated: 2021/12/02 12:55:35 by sde-quai      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	if (!lst || !f)
+	if (!lst)
 		return ;
-	while (lst)
+	while (lst->next)
 	{
 		f(lst->content);
 		lst = lst->next;

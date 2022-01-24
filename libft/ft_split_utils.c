@@ -1,27 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_lstnew.c                                        :+:    :+:            */
+/*   ft_split_utils.c                                   :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: sde-quai <sde-quai@student.codam.nl>         +#+                     */
+/*   By: stormdequay <stormdequay@student.codam.      +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2021/12/02 12:55:49 by sde-quai      #+#    #+#                 */
-/*   Updated: 2021/12/02 12:55:49 by sde-quai      ########   odam.nl         */
+/*   Created: 2022/01/12 11:29:19 by stormdequay   #+#    #+#                 */
+/*   Updated: 2022/01/18 11:37:25 by sde-quai      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
 
-t_list	*ft_lstnew(void *content)
+void	ft_split_free(char **split)
 {
-	t_list	*new_list;
+	size_t	i;
 
-	if (!content)
-		return (NULL);
-	new_list = malloc(sizeof(t_list));
-	if (!new_list)
-		return (NULL);
-	new_list->content = content;
-	new_list->next = NULL;
-	return (new_list);
+	i = 0;
+	while (split[i])
+	{
+		free(split[i]);
+		i++;
+	}
+	free(split);
+}
+
+int	ft_split_len(char **split)
+{
+	int	i;
+
+	i = 0;
+	if (!split)
+		return (i);
+	while (split[i])
+		i++;
+	return (i);
 }

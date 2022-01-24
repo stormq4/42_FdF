@@ -6,13 +6,13 @@
 /*   By: sde-quai <sde-quai@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/12/02 12:56:33 by sde-quai      #+#    #+#                 */
-/*   Updated: 2021/12/02 13:08:12 by sde-quai      ########   odam.nl         */
+/*   Updated: 2022/01/19 10:51:26 by sde-quai      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen_c(char *s, int c)
+static size_t	ft_strlen_c(char *s, int c)
 {
 	size_t	i;
 
@@ -22,7 +22,7 @@ size_t	ft_strlen_c(char *s, int c)
 	return (i);
 }
 
-char	**ft_cleanup(char **str_2d, size_t str_num)
+static char	**ft_cleanup(char **str_2d, size_t str_num)
 {
 	size_t	i;
 
@@ -37,7 +37,7 @@ char	**ft_cleanup(char **str_2d, size_t str_num)
 	return (str_2d);
 }
 
-char	**ft_second_split(char **str_2d, const char *str, \
+static char	**ft_second_split(char **str_2d, const char *str, \
 size_t str_num, char c)
 {
 	size_t	i;
@@ -63,7 +63,7 @@ size_t str_num, char c)
 	return (str_2d);
 }
 
-size_t	ft_count_words(const char *str, char c)
+static size_t	ft_count_words(const char *str, char c)
 {
 	size_t	str_num;
 	size_t	i;

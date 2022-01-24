@@ -6,7 +6,7 @@
 /*   By: sde-quai <sde-quai@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/12/02 12:55:20 by sde-quai      #+#    #+#                 */
-/*   Updated: 2021/12/10 14:53:33 by sde-quai      ########   odam.nl         */
+/*   Updated: 2021/12/02 12:55:27 by sde-quai      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,14 @@
 void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
 	t_list	*tmp;
-	t_list	*t;
 
 	if (!lst)
 		return ;
-	t = *lst;
-	while (t)
+	while ((*lst)->next)
 	{
-		tmp = t->next;
-		ft_lstdelone(t, del);
-		t = tmp;
+		tmp = *lst;
+		*lst = (*lst)->next;
+		ft_lstdelone(tmp, del);
 	}
 	*lst = NULL;
 }

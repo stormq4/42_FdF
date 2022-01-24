@@ -6,7 +6,7 @@
 /*   By: sde-quai <sde-quai@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/12/02 12:55:13 by sde-quai      #+#    #+#                 */
-/*   Updated: 2021/12/09 16:03:19 by sde-quai      ########   odam.nl         */
+/*   Updated: 2021/12/02 12:55:14 by sde-quai      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,13 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 {
 	t_list	*tmp;
 
-	if (*lst)
+	tmp = *lst;
+	if (!tmp)
 	{
-		tmp = ft_lstlast(*lst);
-		tmp->next = new;
+		tmp = new;
+		return ;
 	}
-	else
-		*lst = new;
+	tmp = ft_lstlast(tmp);
+	tmp->next = new;
+	new->next = NULL;
 }

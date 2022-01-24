@@ -6,7 +6,7 @@
 /*   By: sde-quai <sde-quai@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/12/02 12:54:09 by sde-quai      #+#    #+#                 */
-/*   Updated: 2021/12/09 11:21:32 by sde-quai      ########   odam.nl         */
+/*   Updated: 2022/01/12 11:32:52 by stormdequay   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ long long	ft_power(int ground, int power)
 	return (value);
 }
 
-long long	ft_atoi_calc(const char *str, int len)
+static long long	ft_atoi_calc(const char *str, int len)
 {
 	int			i;
 	long long	atoi;
@@ -53,7 +53,7 @@ static void	error_message(void)
 	exit(1);
 }
 
-int	check_atoi_int(long long ll_atoi)
+static int	check_atoi_int(long long ll_atoi)
 {
 	if (ll_atoi > INT_MAX)
 		error_message();

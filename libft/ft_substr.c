@@ -6,13 +6,13 @@
 /*   By: sde-quai <sde-quai@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/12/02 12:57:26 by sde-quai      #+#    #+#                 */
-/*   Updated: 2021/12/02 12:57:27 by sde-quai      ########   odam.nl         */
+/*   Updated: 2022/01/12 11:35:53 by stormdequay   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_second_substr(const char *s, char *sub_s, size_t len)
+static char	*ft_second_substr(const char *s, char *sub_s, size_t len)
 {
 	size_t	i;
 

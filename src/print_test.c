@@ -1,37 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_putnbr_fd.c                                     :+:    :+:            */
+/*   print_test.c                                       :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: sde-quai <sde-quai@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2021/12/02 12:56:22 by sde-quai      #+#    #+#                 */
-/*   Updated: 2022/01/12 11:34:03 by stormdequay   ########   odam.nl         */
+/*   Created: 2022/01/18 13:42:45 by sde-quai      #+#    #+#                 */
+/*   Updated: 2022/01/24 10:46:47 by sde-quai      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "fdf.h"
+#include <stdio.h>
 
-static void	ft_putnbr_rec(long long n, int fd)
+void	print_test(t_vars vars)
 {
-	if (n >= 10)
-	{
-		ft_putnbr_rec(n / 10, fd);
-		ft_putchar_fd(n % 10 + '0', fd);
-	}
-	if (n < 10)
-		ft_putchar_fd(n + '0', fd);
-}
+	size_t	i;
 
-void	ft_putnbr_fd(int n, int fd)
-{
-	long long	nbr;
-
-	nbr = n;
-	if (n < 0)
+	i = 0;
+	printf("length : %zu\n", vars.input_len);
+	while (i < vars.input_len)
 	{
-		nbr = -nbr;
-		ft_putchar_fd('-', fd);
+		printf("x: %f	y: %f	z: %f\n", \
+		vars.input[i].x, vars.input[i].y, vars.input[i].z);
+		i++;
 	}
-	ft_putnbr_rec(nbr, fd);
 }

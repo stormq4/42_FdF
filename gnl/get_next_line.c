@@ -6,7 +6,7 @@
 /*   By: sde-quai <sde-quai@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/10/28 12:10:22 by sde-quai      #+#    #+#                 */
-/*   Updated: 2021/12/13 10:31:53 by sde-quai      ########   odam.nl         */
+/*   Updated: 2022/01/24 09:45:31 by sde-quai      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,12 +39,12 @@ char	*get_next_line(int fd)
 		return (NULL);
 	line = malloc(sizeof(char) * 1);
 	if (!line)
-		exit(1);
+		return (NULL);
 	line[0] = 0;
 	buffer[BUFFER_SIZE] = 0;
 	line = gnl_function(line, buffer, fd);
 	if (!line)
-		return (NULL);
+		exit(1);
 	if (!line[0])
 	{
 		free(line);

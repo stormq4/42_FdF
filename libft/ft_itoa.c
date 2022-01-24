@@ -6,18 +6,18 @@
 /*   By: sde-quai <sde-quai@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/12/02 12:54:50 by sde-quai      #+#    #+#                 */
-/*   Updated: 2021/12/09 10:38:06 by sde-quai      ########   odam.nl         */
+/*   Updated: 2022/01/12 11:33:40 by stormdequay   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_itoa_fill(char	*str, int n, int pow, int i)
+static char	*ft_itoa_fill(char	*str, int n, int pow, int i)
 {
 	while (pow)
 	{
 		str[i] = n / (int)ft_power(10, pow - 1) + '0';
-		n %= ft_power(10, pow - 1);
+		n %= (int)ft_power(10, pow - 1);
 		pow--;
 		i++;
 	}
@@ -25,7 +25,7 @@ char	*ft_itoa_fill(char	*str, int n, int pow, int i)
 	return (str);
 }
 
-char	*ft_itoa_calc(int n, int pow)
+static char	*ft_itoa_calc(int n, int pow)
 {
 	char	*str;
 	int		i;

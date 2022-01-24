@@ -6,14 +6,14 @@
 /*   By: sde-quai <sde-quai@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/12/02 12:56:49 by sde-quai      #+#    #+#                 */
-/*   Updated: 2021/12/02 12:56:49 by sde-quai      ########   odam.nl         */
+/*   Updated: 2022/01/12 11:35:30 by stormdequay   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strjoin_calc(char const *s1, char const *s2, char *str, \
-size_t s_len[2])
+static char	*ft_strjoin_calc(char const *s1, char const *s2, \
+char *str, size_t s_len[2])
 {
 	size_t	i;
 

@@ -6,13 +6,13 @@ CFLAGS := -Wall -Wextra -Werror
 
 CC := gcc
 
-SRCS := 	src/main.c \
-			src/error.c \
-			src/t_pixl.c \
-			src/my_pixel_put.c \
-			src/testput.c \
-			gnl/get_next_line.c \
+SRCS :=		gnl/get_next_line.c \
 			gnl/get_next_line_utils.c \
+		 	src/main.c \
+			src/my_pixel_put.c \
+			src/print_test.c \
+			src/input_handling.c \
+			src/array_length.c
 
 HEADFILES := src/fdf.h
 
@@ -23,16 +23,17 @@ MLX := mlx/libmlx.dylib
 all : $(NAME)
 
 $(NAME) : $(SRCS) $(LIBFT) $(MLX)
-	$(CC) -o $@ $^ -fsanitize=address
+	$(CC) $(CFLAGS) -o $@ $^  
+# -g -fsanitize=address 
+#remove sanitize!!
 
 $(LIBFT) :
 	$(MAKE) bonus -C libft
 
-$(MLX):
+$(MLX) :
 	$(MAKE) -C mlx && test -e libmlx.dylib || ln -sf mlx/libmlx.dylib libmlx.dylib
 
 clean :
-	rm libmlx.dylib
 	$(MAKE) clean -C libft
 
 fclean : 
