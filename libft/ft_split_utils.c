@@ -6,12 +6,11 @@
 /*   By: stormdequay <stormdequay@student.codam.      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/01/12 11:29:19 by stormdequay   #+#    #+#                 */
-/*   Updated: 2022/01/18 11:37:25 by sde-quai      ########   odam.nl         */
+/*   Updated: 2022/01/25 10:42:22 by sde-quai      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
 
 void	ft_split_free(char **split)
 {

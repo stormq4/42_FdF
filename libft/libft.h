@@ -6,7 +6,7 @@
 /*   By: sde-quai <sde-quai@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/12/02 12:59:54 by sde-quai      #+#    #+#                 */
-/*   Updated: 2022/01/19 11:41:32 by sde-quai      ########   odam.nl         */
+/*   Updated: 2022/02/02 09:27:56 by sde-quai      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,5 +73,8 @@ void			ft_check_malloc(void *ptr);
 void			ft_split_free(char **split);
 int				ft_split_len(char **split);
 char			*ft_strdup_c(const char *s1, char c);
+float			absolute_float(float abs);
+int				absolute_int(int abs);
+long			absolute_long(long abs);
 
 #endif

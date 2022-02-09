@@ -6,7 +6,7 @@
 /*   By: sde-quai <sde-quai@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/01/19 14:42:19 by sde-quai      #+#    #+#                 */
-/*   Updated: 2022/01/24 10:31:59 by sde-quai      ########   odam.nl         */
+/*   Updated: 2022/02/02 15:16:48 by sde-quai      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,9 @@
 #include <stdlib.h>
 #include <fcntl.h>
 
+/*
+A tmp t_pixel struct is made and but in the t_vars struct;
+ */
 static t_pixel	*fill_vector_array(char **line_2d, int line_len, \
 int y, t_pixel	*array)
 {
@@ -35,6 +38,10 @@ int y, t_pixel	*array)
 	return (array);
 }
 
+/*
+Every line is parsed with ft_split and the x y and z values from the map is 
+placed in the vars struct
+ */
 static t_pixel	*convert_input_to_vector(char *line, \
 t_pixel *input_array, int y)
 {
@@ -51,6 +58,11 @@ t_pixel *input_array, int y)
 	return (input_array);
 }
 
+/*
+Allocates an input array with the length of the input length and fills it with 
+the data of the x y and z coordinates. It uses get next line to parse the data 
+from the map
+ */
 t_pixel	*convert_input(char **argv, size_t input_len)
 {
 	int		fd;

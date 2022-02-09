@@ -1,28 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   print_test.c                                       :+:    :+:            */
+/*   absolute.c                                         :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: sde-quai <sde-quai@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/01/18 13:42:45 by sde-quai      #+#    #+#                 */
-/*   Updated: 2022/01/24 10:46:47 by sde-quai      ########   odam.nl         */
+/*   Created: 2022/01/27 15:51:24 by sde-quai      #+#    #+#                 */
+/*   Updated: 2022/02/02 09:26:17 by sde-quai      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
-#include <stdio.h>
+#include "libft.h"
 
-void	print_test(t_vars vars)
+float	absolute_float(float abs)
 {
-	size_t	i;
+	if (abs < 0)
+		abs = -abs;
+	return (abs);
+}
 
-	i = 0;
-	printf("length : %zu\n", vars.input_len);
-	while (i < vars.input_len)
-	{
-		printf("x: %f	y: %f	z: %f\n", \
-		vars.input[i].x, vars.input[i].y, vars.input[i].z);
-		i++;
-	}
+int	absolute_int(int abs)
+{
+	if (abs < 0)
+		abs = -abs;
+	return (abs);
+}
+
+long	absolute_long(long abs)
+{
+	if (abs < 0)
+		abs = -abs;
+	return (abs);
 }

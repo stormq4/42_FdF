@@ -42,7 +42,8 @@ ft_substr.c \
 ft_tolower.c \
 ft_toupper.c \
 ft_check_malloc.c \
-ft_split_utils.c
+ft_split_utils.c \
+absolute.c
 
 SRCS_BONUS := \
 ft_lstadd_back.c \
@@ -67,22 +68,29 @@ else
 ALL_OBJS = $(OBJS)
 endif
 
+RED := "\033[0;31m"
+GREEN := "\033[1;32m"
+CYAN := "\033[1;36m"
+
 all : $(NAME)
 
 %.o : %.c $(HEADFILES)
-	$(CC) -c $(CFLAGS) -o $@ $<
+	@$(CC) -c $(CFLAGS) -o $@ $<
+
 
 $(NAME): $(ALL_OBJS)
-	ar -ru $(NAME) $^
+	@ar -ru $(NAME) $^
 
 bonus:
-	$(MAKE) EXEC_BONUS=1
+	@$(MAKE) EXEC_BONUS=1
 
 clean:
-	rm -f $(OBJS) $(OBJS_BONUS)
+	@rm -f $(OBJS) $(OBJS_BONUS)
+	@echo $(GREEN) "Deleting object files from libft"
 
 fclean: clean
-	rm -f $(NAME)
+	@rm -f $(NAME)
+	@echo $(GREEN) "Deleting library file libft.a"
 
 re: fclean all
 

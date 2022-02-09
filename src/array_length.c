@@ -6,15 +6,15 @@
 /*   By: sde-quai <sde-quai@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/01/19 15:38:41 by sde-quai      #+#    #+#                 */
-/*   Updated: 2022/01/24 15:02:23 by sde-quai      ########   odam.nl         */
+/*   Updated: 2022/02/02 15:10:41 by sde-quai      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
-#include <stdio.h>
-#include <stdlib.h>
-#include <fcntl.h>
 
+/*
+Removes newline at the end of a string
+ */
 char	*remove_newline(char *line)
 {
 	char	*new_line;
@@ -25,21 +25,14 @@ char	*remove_newline(char *line)
 	return (new_line);
 }
 
-size_t	retrieve_array_length(char **argv)
+/*
+Fills the height, width and length of the total array and places it in the 
+struct of t_vars in vars
+ */
+static void	fill_array_data(t_vars *vars, size_t x, char *line, int fd)
 {
-	int		fd;
-	char	*line;
-	char	**line_2d;
-	size_t	x;
 	size_t	y;
 
-	fd = open(argv[1], O_RDONLY);
-	line = get_next_line(fd);
-	line = remove_newline(line);
-	line_2d = ft_split(line, ' ');
-	ft_check_malloc(line_2d);
-	x = ft_split_len(line_2d);
-	ft_split_free(line_2d);
 	y = 0;
 	while (line)
 	{
@@ -49,5 +42,31 @@ size_t	retrieve_array_length(char **argv)
 	}
 	free(line);
 	close(fd);
-	return (y * x);
+	vars->x = x;
+	vars->y = y;
+	vars->input_len = x * y;
+}
+
+/*
+This function retrieves the dimensions of the parsed map in terms of 
+width(x), height(y) and input_length.
+It uses get_next_line(gnl) and ft_split and strdup_c
+ */
+void	retrieve_array_length(char **argv, t_vars *vars)
+{
+	int		fd;
+	char	*line;
+	char	**line_2d;
+	size_t	x;
+
+	fd = open(argv[1], O_RDONLY);
+	if (fd < 0 || fd > OPEN_MAX)
+		exit(1);
+	line = get_next_line(fd);
+	line = remove_newline(line);
+	line_2d = ft_split(line, ' ');
+	ft_check_malloc(line_2d);
+	x = ft_split_len(line_2d);
+	ft_split_free(line_2d);
+	fill_array_data(vars, x, line, fd);
 }
