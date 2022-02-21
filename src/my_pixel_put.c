@@ -6,7 +6,7 @@
 /*   By: sde-quai <sde-quai@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/12/14 10:27:26 by sde-quai      #+#    #+#                 */
-/*   Updated: 2022/02/09 10:25:35 by sde-quai      ########   odam.nl         */
+/*   Updated: 2022/02/21 10:15:39 by sde-quai      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,8 @@ black pixels on the screen
  */
 void	make_screen_black(t_vars *vars)
 {
-	int	i;
-	int	j;
+	size_t	i;
+	size_t	j;
 
 	i = 0;
 	while (i < S_HEIGHT)

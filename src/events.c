@@ -6,7 +6,7 @@
 /*   By: sde-quai <sde-quai@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/02/02 13:53:11 by sde-quai      #+#    #+#                 */
-/*   Updated: 2022/02/09 10:32:52 by sde-quai      ########   odam.nl         */
+/*   Updated: 2022/02/21 11:05:21 by sde-quai      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,23 +15,17 @@
 /*
 This function renders for the keyhooks called in the function 
 render_next_frame() Exit the porgram if ESC is pressed
-Value for ESC is in the headerfile fdf.h
+Value for ESC is in the headerfile fdf.h. THe QWEASD keys
+as well; they change the angle in rotate.c
  */
 static int	key_hook(int keycode, t_vars *vars)
 {
 	if (keycode == ESC)
 		close_screen(keycode, vars);
-	return (0);
-}
-
-/*
-The x and y are registered for the moving of the mouse.
- */
-static int	mouse_click(int x, int y, t_vars *vars)
-{
-	printf("x : %i	y : %i	LEFT CLICK\n", x, y); // delete me
-	vars->line_length++;
-	vars->line_length--;
+	else if (keycode == Z || keycode == X)
+		mlx_hook(vars->win, 2, 1L << 0, increase_z, vars);
+	else
+		mlx_hook(vars->win, 2, 1L << 0, rotate_angle, vars);
 	return (0);
 }
 
@@ -43,26 +37,12 @@ adjust the angle for the view. The keycodes kan be found in the header.
  */
 static int	mouse_hook(int keycode, int x, int y, t_vars *vars)
 {
-	x++;
-	y++;
+	(void)x;
+	(void)y;
 	if (keycode == SCROLL_UP)
-	{
-		make_screen_black(vars);
-		vars->line_length++;
-		// add adjust z axis
-		angle_input(vars);
-		put_to_screen(*vars);
-	}
+		zoom(vars, IN);
 	if (keycode == SCROLL_DOWN)
-	{
-		make_screen_black(vars);
-		vars->line_length--;
-		// add adjust z axis
-		angle_input(vars);
-		put_to_screen(*vars);
-	}
-	if (keycode == LEFT_CLICK)
-		mlx_hook(vars->win, 6, 1L << 0, mouse_click, vars);
+		zoom(vars, OUT);
 	return (0);
 }
 
@@ -72,10 +52,9 @@ this function is called so the program is terminated
  */
 int	close_screen(int keycode, t_vars *vars)
 {
-	keycode = 0;
+	(void)keycode;
+	(void)vars;
 	exit(0);
-	free(vars->input);
-	free(vars->compute);
 	return (0);
 }
 
@@ -89,9 +68,8 @@ rendered.
  */
 int	render_next_frame(t_vars *vars)
 {
-	mlx_hook(vars->win, RED_CROSS, 0, close_screen, (void *)0);
+	mlx_hook(vars->win, RED_CROSS, 0, close_screen, vars);
 	mlx_key_hook(vars->win, key_hook, vars);
 	mlx_mouse_hook(vars->win, mouse_hook, vars);
-	// mlx_hook(vars->win, LEFT_CLICK, 1L << 0, mouse_click, vars);
 	return (0);
 }

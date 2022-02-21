@@ -6,7 +6,7 @@
 /*   By: sde-quai <sde-quai@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/01/19 14:42:19 by sde-quai      #+#    #+#                 */
-/*   Updated: 2022/02/02 15:16:48 by sde-quai      ########   odam.nl         */
+/*   Updated: 2022/02/18 16:04:10 by stormdequay   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@
 #include <fcntl.h>
 
 /*
-A tmp t_pixel struct is made and but in the t_vars struct;
+A tmp t_pixel struct is made and but in the t_vars struct. atoi is used to
+Retrieve the ascii string from the table and puts it in the z axis. 
  */
 static t_pixel	*fill_vector_array(char **line_2d, int line_len, \
 int y, t_pixel	*array)
@@ -85,4 +86,23 @@ t_pixel	*convert_input(char **argv, size_t input_len)
 	}
 	close(fd);
 	return (input_array);
+}
+
+t_pixel	*create_compute_array(size_t input_len)
+{
+	t_pixel	*compute_array;
+
+	compute_array = malloc(sizeof(t_pixel) * input_len);
+	ft_check_malloc(compute_array);
+	return (compute_array);
+}
+
+void	create_angle_struct(t_vars *vars)
+{
+	t_angle	angle;
+
+	angle.d_x = 0;
+	angle.d_y = 0;
+	angle.d_z = 0;
+	vars->angle = angle;
 }

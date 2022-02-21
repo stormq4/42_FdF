@@ -6,7 +6,7 @@
 /*   By: sde-quai <sde-quai@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/01/19 15:38:41 by sde-quai      #+#    #+#                 */
-/*   Updated: 2022/02/02 15:10:41 by sde-quai      ########   odam.nl         */
+/*   Updated: 2022/02/19 10:20:04 by stormdequay   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,8 @@ static void	fill_array_data(t_vars *vars, size_t x, char *line, int fd)
 /*
 This function retrieves the dimensions of the parsed map in terms of 
 width(x), height(y) and input_length.
-It uses get_next_line(gnl) and ft_split and strdup_c
+It uses get_next_line(gnl) and ft_split and strdup_c. x_origin and 
+y_origin is the middle of the screen for the x and values.
  */
 void	retrieve_array_length(char **argv, t_vars *vars)
 {
@@ -69,4 +70,6 @@ void	retrieve_array_length(char **argv, t_vars *vars)
 	x = ft_split_len(line_2d);
 	ft_split_free(line_2d);
 	fill_array_data(vars, x, line, fd);
+	vars->x_origin = S_WIDTH / 2;
+	vars->y_origin = S_HEIGHT / 2;
 }
