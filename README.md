@@ -5,14 +5,14 @@ This project modelizes a 3D "fil de fer" or "wireframe" from a map of raw data w
 
 ## Running the program
 In order to compile the program, run the following command in the home directory of the fdf repository:
-'''
+```
 make
-'''
+```
 
 In order to run the fdf program and pass a map in the test_maps folder as argument in the command line. Which looks as follows:
-'''
+```
 ./fdf test_maps/(example_map).fdf
-'''
+```
 
 ## Basic Instructions
 While the program is loaded and a 3D map is displayed on the screen in isometric view you can press the following keys in order to alter the maps coordinates and heights. 
@@ -43,16 +43,16 @@ In order to amplify the z coordinates on the wireframe press the follwing button
 
 ### Cleaning Up instructions
 In order to remove the objectfiles from the mlx and libft libraries fill in the following commands in the command line in the homedirectory:
-'''
+```
 make clean
-'''
+```
 
 For removing the executables and object files execute the following command:
-'''
+```
 make fclean
-'''
+```
 
 For re-compiling the entire program the following command is used:
-'''
+```
 make re
-'''
+```
