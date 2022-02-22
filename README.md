@@ -1,7 +1,7 @@
 # FdF
 
 ## Introduction
-This project modelizes a 3D "fil de fer" or "wireframe" from a map of raw data which can be found in the test_maps folder inside of the repository. It parses through a map of coordinates and places a the model on the screen. 
+This project modelizes a 3D "fil de fer" or "wireframe" from a map of raw data which can be found in the test_maps folder inside of the repository. It parses through a map of coordinates and places a model derived from that data on the screen. 
 
 ## Running the program
 In order to compile the program, run the following command in the home directory of the fdf repository:
@@ -9,13 +9,13 @@ In order to compile the program, run the following command in the home directory
 make
 ```
 
-In order to run the fdf program and pass a map in the test_maps folder as argument in the command line. Which looks as follows:
+In order to run the fdf program and pass a map in the test_maps folder as argument in the command line, which is as follows:
 ```
 ./fdf test_maps/(example_map).fdf
 ```
 
 ## Basic Instructions
-While the program is loaded and a 3D map is displayed on the screen in isometric view you can press the following keys in order to alter the maps coordinates and heights. 
+While the program is loaded and a 3D map is displayed on the screen in isometric view, the user can press the following keys in order to alter the maps coordinates and heights. 
 
 ### Changing the angle on the X Axis
 To change the angle on the x axis press the following buttons
