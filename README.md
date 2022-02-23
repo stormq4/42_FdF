@@ -4,6 +4,12 @@
 This project modelizes a 3D "fil de fer" or "wireframe" from a map of raw data which can be found in the test_maps folder inside of the repository. It parses through a map of coordinates and places a model derived from that data on the screen. 
 
 ## Running the program
+First Download the repository with the following command and change directory to the FdF repository with the following commands.
+```
+git clone https://github.com/stormq4/FdF.git
+cd FdF
+```
+
 In order to compile the program, run the following command in the home directory of the fdf repository:
 ```
 make
